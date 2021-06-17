@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainAP" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EasyVEOCreate.FXMLSetupRunController">
+    <stylesheets>
+        <URL value="@/FXMLGUICommon/ControllerStyles.css" />
+    </stylesheets>
+    <children>
+        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleMenuLoadJobAction" text="Load Job" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleMenuSaveJobAction" text="Save Job" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleMenuFileCloseAction" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleCutAction" text="Cut" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleCopyAction" text="Copy" />
+                                <MenuItem mnemonicParsing="false" onAction="#handlePasteAction" text="Paste" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleAboutAction" text="About" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleOnlineHelpAction" text="Help Contents" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        <Tab text="General">
+                            <content>
+                                <ScrollPane>
+                                    <AnchorPane>
+                                        <children>
+                                            <GridPane hgap="10.0" vgap="7.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0" GridPane.fillWidth="true">
+                                                <columnConstraints>
+                                                    <ColumnConstraints hgrow="NEVER" minWidth="130.0" />
+                                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="300.0" />
+                                                    <ColumnConstraints hgrow="NEVER" minWidth="68.0" />
+                                                </columnConstraints>
+                                                <rowConstraints>
+                                                    <RowConstraints vgrow="NEVER" />
+                                                    <RowConstraints vgrow="NEVER" />
+                                                    <RowConstraints vgrow="NEVER" />
+                                                    <RowConstraints vgrow="NEVER" />
+                                                    <RowConstraints vgrow="NEVER" />
+                                                </rowConstraints>
+                                                <children>
+                                                    <Label alignment="CENTER_RIGHT" text="Source directory" textAlignment="RIGHT" textFill="RED" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+                                                    <TextField fx:id="sourceDirectoryTF" onAction="#templateDirChange" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                                                    <Button fx:id="sourceDirectoryBrowseB" mnemonicParsing="false" onAction="#browseForSourceDirB" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                    <Label alignment="CENTER_RIGHT" text="Output directory" textAlignment="RIGHT" textFill="RED" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                    <TextField fx:id="outputDirTF" onAction="#outputDirChange" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                                    <Button fx:id="outputDirBrowseB" mnemonicParsing="false" onAction="#outputDirBrowse" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                    <Label alignment="CENTER_RIGHT" text="PFX file" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                    <TextField fx:id="pfxFileTF" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                                                    <Button fx:id="pfxBrowseB" mnemonicParsing="false" onAction="#pfxFileBrowse" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                    <Label alignment="CENTER_RIGHT" text="PFX password" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                                    <PasswordField fx:id="pfxFilePasswordTF" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                                                    <Label alignment="CENTER_RIGHT" text="Creation description" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                                    <TextField fx:id="archivalFileTF" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                                                    <Button fx:id="archivalBrowseB" mnemonicParsing="false" onAction="#archivalFileBrowse" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                </children>
+                                            </GridPane>
+                                        </children>
+                                    </AnchorPane>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Exclusions">
+                            <content>
+                                <AnchorPane>
+                                    <children>
+                                        <VBox fillWidth="true" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                            <children>
+                                                <TitledPane animated="false" text="Subfolders to exclude:">
+                                                    <content>
+                                                        <GridPane hgap="10.0">
+                                                            <children>
+                                                                <ListView fx:id="excFoldersLV" prefHeight="100" prefWidth="300.0" GridPane.columnIndex="0" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+                                                                <VBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                                    <children>
+                                                                        <Button fx:id="excFolderBrowseB" mnemonicParsing="false" onAction="#browseForExcFolderB" prefWidth="68.0" text="Browse" />
+                                                                        <Button fx:id="excFolderDelB" mnemonicParsing="false" onAction="#deleteExcFolderB" prefWidth="68.0" text="Delete" />
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                            <columnConstraints>
+                                                                <ColumnConstraints />
+                                                                <ColumnConstraints />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints />
+                                                            </rowConstraints>
+                                                        </GridPane>
+                                                    </content>
+                                                </TitledPane>
+                                                <TitledPane animated="false" text="File patterns to exclude:">
+                                                    <content>
+                                                        <ScrollPane fitToHeight="true" fitToWidth="true">
+                                                            <content>
+                                                                <TextArea fx:id="excFilesTA" minHeight="100" GridPane.fillHeight="true" GridPane.vgrow="ALWAYS" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                    </content>
+                                                </TitledPane>
+                                                <TitledPane animated="false" text="Handling of files without extensions:" VBox.vgrow="NEVER">
+                                                    <content>
+                                                        <AnchorPane>
+                                                            <children>
+                                                                <CheckBox fx:id="fileExtensionCB" mnemonicParsing="false" prefHeight="17.0" prefWidth="135.0" selected="true" text="Exclude" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </TitledPane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Advanced">
+                            <content>
+                                <ScrollPane fitToHeight="true" fitToWidth="true">
+                                    <AnchorPane>
+                                        <children>
+                                            <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                <children>
+                                                    <TitledPane animated="false" maxWidth="1.7976931348623157E308" text="Logging">
+                                                        <content>
+                                                            <GridPane hgap="10.0" vgap="6.0">
+                                                                <columnConstraints>
+                                                                    <ColumnConstraints hgrow="NEVER" minWidth="130.0" />
+                                                                    <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="300.0" fillWidth="true"  />
+                                                                    <ColumnConstraints hgrow="NEVER" minWidth="68.0" />
+                                                                </columnConstraints>
+                                                                <children>
+                                                                    <CheckBox fx:id="verboseCB" mnemonicParsing="false" prefHeight="17.0" prefWidth="135.0" selected="true" text="Verbose" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                                    <CheckBox fx:id="debugCB" mnemonicParsing="false" prefHeight="17.0" prefWidth="135.0" selected="true" text="Debug" GridPane.halignment="LEFT" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                                </children>
+                                                                <rowConstraints>
+                                                                    <RowConstraints />
+                                                                    <RowConstraints />
+                                                                </rowConstraints>
+                                                            </GridPane>
+                                                        </content>
+                                                    </TitledPane>
+                                                    <TitledPane animated="false" text="Standard VERS templates">
+                                                        <content>
+                                                            <GridPane hgap="10.0" vgap="7.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+                                                                <columnConstraints>
+                                                                    <ColumnConstraints hgrow="NEVER" minWidth="130.0" />
+                                                                    <ColumnConstraints fillWidth="true" hgrow="ALWAYS" minWidth="100.0" />
+                                                                    <ColumnConstraints hgrow="NEVER" minWidth="68.0" />
+                                                                </columnConstraints>
+                                                                <rowConstraints>
+                                                                    <RowConstraints vgrow="NEVER" />
+                                                                </rowConstraints>
+                                                                <children>
+                                                                    <Label alignment="CENTER_RIGHT" text="VERS templates" textAlignment="RIGHT" textFill="RED" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="0" />
+                                                                    <TextField fx:id="versTemplateTF" onAction="#versTemplateDirChange" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                                    <Button fx:id="versTemplateBrowseB" mnemonicParsing="false" onAction="#browseForVERSTemplateDirB" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                                </children>
+                                                            </GridPane>
+                                                        </content>
+                                                    </TitledPane>
+                                                    <TitledPane animated="false" text="Handling of non-LTSF files">
+                                                        <content>
+                                                            <AnchorPane>
+                                                                <children>
+                                                                    <CheckBox fx:id="includeDummyCB" mnemonicParsing="false" prefHeight="17.0" prefWidth="135.0" selected="true" text="Include dummy"  AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                                </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                    </TitledPane>
+                                                    <TitledPane animated="false" text="Security">
+                                                        <content>
+                                                            <GridPane hgap="10.0" vgap="6.0">
+                                                                <children>
+                                                                    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="110.0" text="Hash algorithm" GridPane.halignment="RIGHT" />
+                                                                    <ComboBox fx:id="hashAlgorithmCB" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                                                </children>
+                                                                <columnConstraints>
+                                                                    <ColumnConstraints />
+                                                                    <ColumnConstraints />
+                                                                </columnConstraints>
+                                                                <rowConstraints>
+                                                                    <RowConstraints />
+                                                                </rowConstraints>
+                                                            </GridPane>
+                                                        </content>
+                                                    </TitledPane>
+                                                    <Button mnemonicParsing="false" text="Reset to Default" />
+                                                </children>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <Button fx:id="createVEOsB" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createVEOs" text="Create VEOs">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+{
+    "create": {
+        "sourceDirectory": "The folder in which the VEO directories will be found",
+        "versTemplateDirectory": "The folder in which the standard VEOReadme.txt file & long term sustainable format list is to be found",
+        "outputFolder": "The directory in which the VEOs will be created",
+        "excludeFolders": "A list of directories to exclude from the VEOs",
+	"excludeFiles": "A list of patterns used to exclude files from the VEOs",
+	"hashAlgorithm": "The hash algorithm used to protect the content files and create signatures",
+        "archivalFile": "A text description of creation of these records that will be included in each VEO (Optional)",
+	"verboseOutput": "Provides logging information about the VEO creation",
+        "debugOutput": "Generates more logging and the VEO folders are not deleted after the ZIP file is created",
+        "pfxFile": "The pfx file used to sign the VEOs",
+        "pfxFilePassword": "The password used to unlock the PFX file",
+        "browse": "Browse the file system for files or directories",
+        "delete": "Delete the selected directory",
+        "createVEOs": "Press here to create the VEOs",
+        "report": "Reports generated as each VEO is created",
+        "progress": "The progress through the list of VEOs",
+        "processing": "The VEO that is currently being generated",
+        "cancel": "Cancel the remainder of this run",
+        "fileExtension": "If checked, do not include files without a file extension",
+        "includeDummy": "If checked, automatically include a dummy text file for files that are not approved long term sustainable formats",
+        "log": "Save the report messages to a file"
+    }
+}
