@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Easy VEO Create Help</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Easy VEO Create</h1>
+            <p>This program provides a simple method of creating structured VERS
+                V3 VEOs.</p>
+            <p>To create a VEO, a user creates a directory in the file system
+                containing the VEO content as they wish it to be arranged in the
+                VEO. The directory can contain subdirectories and these are
+                converted into a structured VEO. The metadata to be included in
+                the VEO is represented by text files in the directory whose
+                names start with 'VERS-MD-'</p>
+
+            <h2>Set-up pane</h2>
+            <p>The main controls are located on the 'General' tab of this pane.
+                The controls are as follows:</p>
+		<ul>
+		<li><b>Source directory</b> This specifies a directory which
+                    contains the information to create the VEOs. The directory
+                    contains one or more subdirectories. Each subdirectory will
+                    generate one VEO. The 'Browse' button on the right is used
+                    to browse to the directory. This must be specified.</li>
+		<li><b>Output directory</b> This specifies the directory
+                    where the VEOs are to be created. The 'Browse' button on
+                    the right can be used to select a new directory. This
+                    must be specified.</li>
+                <li><b>PFX file</b> This specifies the PFX file used to sign the
+                    VEOs. The 'Browse' button on the right can be used to select
+                    the PFX file. This is optional, but if it is not
+                    specified the VEOs will not be signed.</li>
+                <li><b>PFX password</b> This is the password for the PFX file.
+                    This field must be entered if a PFX file is specified.</li>
+                <li><b>Creation description</b> This is file that contains a
+                    text description of the creation of the VEOs. It is
+                    intended to be used to provide archival or record keeping
+                    information about the records. This field is optional.</li>
+                <li><b>Template directory</b> This field specifies the directory
+                    that contains the templates used to construct the VEO.
+                    Normally, a standard template directory should be used. If
+                    necessary, the 'Browse' button on the right can be used to
+                    select a new directory.</li>
+                <li><b>Create VEOs</b> button. This button starts the creation
+                    of the VEOs once the necessary information has been
+                    entered. Initially, this button is greyed out and is
+                    inactive. It will only become active when the source
+                    directory and output directory have been entered. If
+                    a PFX file has been entered, a PFX password must also be
+                    entered.</li>
+		</ul>
+            <h2>Saving and loading jobs</h2>
+            <p>To save time in entering the data required to create VEOs, it
+                is possible to save the values in all the interface fields and
+                reload them subsequently.</p>
+            <p>To save the current state, select the 'File' menu and the 'Save
+                Job'. You will be prompted for the file in which to save the
+                current job.</p>
+            <p>To reload a job, select the 'File' menu and the 'Load Job'
+                option. You will be prompted for the file that contains the job
+                to be loaded.</p>
+            <p>Once a job has been loaded, any of the fields can be changed as
+                required.</p>
+            <h2>Other control options</h2>
+            <p>The 'Exclusions' and 'Advanced' panes contain a number of
+                advanced options that may be used to provide more control over
+                the VEO creation process.</p>
+            <h3>Exclusions Pane</h3>
+            <p>This pane has two areas that allow files or directories to be
+                excluded from the VEOs. These options are useful if the VEO
+                contents already exist and may contain files that it is not
+                desired to put in the VEO.</p>
+            <p>The top area, 'Subfolders to exclude from harvest', can contain a
+                list of directories that are not to be included in the VEO, one
+                per line. 'Browse' and 'Delete' buttons are provided to add and
+                delete entries in this area.</p>
+            <p>The bottom area, 'File name patterns to exclude from harvest',
+                allows the exclusion of particular files, one pattern per line.
+                Patterns are expressed using a regular expression. For example,
+                the pattern '*.tmp' will exclude any files with the file
+                extension '.tmp'.</p>
+            <h3>Advanced pane</h3>
+            <p>This pane is used to control advanced functionality; in
+                particular the level of logging and the hash algorithm to be
+		used.</p>
+        </div>        
+    </body>
+</html>
