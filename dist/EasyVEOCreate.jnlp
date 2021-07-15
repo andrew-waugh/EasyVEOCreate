@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="EasyVEOCreate.jnlp">
+  <information>
+    <title>EasyVEOCreate</title>
+    <vendor>Andrew</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="EasyVEOCreate.jar" size="3565792" download="eager" />
+    <jar href="lib\FXMLGUICommon.jar" size="50366" download="eager" />
+    <jar href="lib\VERSCommon.jar" size="73645" download="eager" />
+    <jar href="lib\jena-core-2.12.1.jar" size="1634075" download="eager" />
+    <jar href="lib\jena-iri-1.1.1.jar" size="144264" download="eager" />
+    <jar href="lib\json-simple-1.1.1.jar" size="26304" download="eager" />
+    <jar href="lib\log4j-1.2.17.jar" size="519850" download="eager" />
+    <jar href="lib\neoVEO.jar" size="332942" download="eager" />
+    <jar href="lib\slf4j-api-1.7.6.jar" size="32658" download="eager" />
+    <jar href="lib\slf4j-log4j12-1.7.6.jar" size="11034" download="eager" />
+    <jar href="lib\xercesImpl-2.11.0.jar" size="1473659" download="eager" />
+    <jar href="lib\xml-apis-1.4.01.jar" size="258215" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="EasyVEOCreate" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="EasyVEOCreate.EasyVEOCreateGUI"  name="EasyVEOCreate" />
+  <update check="always"/>
+</jnlp>
